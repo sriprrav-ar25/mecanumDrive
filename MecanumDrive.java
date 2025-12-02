@@ -7,6 +7,17 @@ import com.qualcomm.robotcore.hardware.IMU;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
+// AprilTag IDs on the field
+private static final int COLOUR_TAG_ID = 1;
+private static final int MOTIF_TAG_ID = 2;
+
+// Output from detection
+private ColourCombo detectedCombo = null;
+private int detectedMotifID = -1;
+
+// Keep your existing drive object EXACTLY as in MecanumDrive.java
+MecanumDrive drive;
+
 public class MecanumDrive {
     private DcMotor frontLeftMotor, frontRightMotor, backLeftMotor, backRightMotor;
     private IMU imu;

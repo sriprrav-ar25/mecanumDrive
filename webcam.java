@@ -11,6 +11,12 @@ import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 
 import java.util.List;
 
+public enum ColourCombo {
+    PPG, // Purple Purple Green
+    PGP, // Purple Green Purple
+    GPP  // Green Purple Purple
+}
+
 @Autonomous(name = "AprilTag Auto - MecanumDrive", group = "Auto")
 public class AprilTagDrive extends LinearOpMode {
 
@@ -87,4 +93,5 @@ public class AprilTagDrive extends LinearOpMode {
 
         visionPortal = builder.build();
     }
+
 }

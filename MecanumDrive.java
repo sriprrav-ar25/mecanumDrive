@@ -19,7 +19,7 @@ private int detectedMotifID = -1;
 MecanumDrive drive;
 
 public class MecanumDrive {
-    private DcMotor frontLeftMotor, frontRightMotor, backLeftMotor, backRightMotor;
+    private DcMotor frontLeftMotor, frontRightMotor, backLeftMotor, backRightMotor, LeftLuanchMotor, RightLaunchMotor;
     private IMU imu;
     static double maxSpeed = 1.0; // change value for training
 
@@ -28,6 +28,8 @@ public class MecanumDrive {
         frontRightMotor = hwMap.get(DcMotor.class, "frontRight"); // port #
         backLeftMotor = hwMap.get(DcMotor.class, "backLeft"); // port #
         backRightMotor = hwMap.get(DcMotor.class, "backRight"); // port #
+        LeftLuanchMotor = hwMap.get(DcMotor.class, "LeftLuanch"); // port #
+        RightLaunchMotor = hwMap.get(DcMotor.class, "RightLaunch"); // port #
 
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
@@ -77,6 +79,11 @@ public class MecanumDrive {
         frontRightMotor.setPower(maxSpeed * frontRightPower);
         backLeftMotor.setPower(maxSpeed * backLeftPower);
         backRightMotor.setPower(maxSpeed * backRightPower);
+    }
+    
+    public void LaunchCode(double forward, double strafe, double rotate) {
+        LeftLuanchMotor.setPower(forward);
+        RightLaunchMotor.setPower(strafe);
     }
 
 }
